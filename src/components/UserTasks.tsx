@@ -8,7 +8,7 @@ const UserTasks = () => {
     const tasks = useTodoStore(state => state.tasks);
     useEffect(() => {
         getUserTasks();
-    }, [])
+    }, [localStorage.getItem('token')])
 
     return (
         <div className="user-tasks-container">
