@@ -1,4 +1,5 @@
 import { create } from "zustand";
+
 interface UserType {
     email: string,
     password: string,
@@ -45,6 +46,7 @@ export const useAuthenticationStore = create<RegisterType>( () => ({
         const data = await res.json();
         const token = data.token;
         localStorage.setItem( 'token', token);
+
     }
 
 }))

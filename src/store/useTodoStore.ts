@@ -14,6 +14,7 @@ interface TodoStoreType {
     getUserTasks: () => void;
     addTask: ( title: string, description: string ) => void;
     deleteTask: ( taskID : number ) => void;
+    setCompleted: ( taskID: number) => void;
 }
 export const useTodoStore = create<TodoStoreType>((set, get) => ({
     tasks: [],
@@ -31,5 +32,8 @@ export const useTodoStore = create<TodoStoreType>((set, get) => ({
         const filteredTasks = tasks.filter(task => task.id !== taskID);
 
         set({ tasks: filteredTasks });
+    },
+    setCompleted: async ( taskID: number ) => {
+        set(state => ({ tasks: state.tasks.map(task => task.id === taskID ? { ...task, completed: !task.completed } : task) }))        
     }
 }))
