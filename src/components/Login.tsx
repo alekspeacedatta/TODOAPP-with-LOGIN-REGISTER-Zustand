@@ -9,7 +9,7 @@ const Login = () => {
     return (
         <>
             <form onSubmit={(e) => { e.preventDefault(), login( email, password) }}>
-                <h2>Login</h2>
+                <h2>Login: </h2>
                 <section>
                     <label htmlFor="">Email: </label>
                     <input type="text" placeholder="enter your email" onChange={e => { setEmail(e.target.value) }} />

@@ -9,7 +9,7 @@ const AddTodo = () => {
   return (
     <>
       <form onSubmit={ (e) => { e.preventDefault(), addTask( title, description ) } }>
-        <h2>Add Task</h2>
+        <h2>Add Task: </h2>
         <section>
           <label>Title: </label>
           <input type="text" onChange={e => {setTitle(e.target.value)}} placeholder="Enter Your Task Title" />

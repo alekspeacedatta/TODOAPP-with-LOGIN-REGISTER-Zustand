@@ -10,7 +10,7 @@ const Register = () => {
     return (
         <>
             <form onSubmit={(e) => { e.preventDefault(), register(name, email, password) }}>
-                <h2>Register</h2>
+                <h2>Register: </h2>
                 <section>
                     <label htmlFor="">Name: </label>
                     <input type="text" placeholder="enter your name" onChange={e => { setName(e.target.value) }} />
