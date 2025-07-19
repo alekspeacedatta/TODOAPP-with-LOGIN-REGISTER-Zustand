@@ -9,7 +9,7 @@ interface RegisterType {
     register: (name: string, email: string, password: string) => void;
     login: ( email : string, password : string ) => void;
 }
-export const useAuthenticationStore = create<RegisterType>( (set, get) => ({
+export const useAuthenticationStore = create<RegisterType>( () => ({
     user: null,
 
     register: async (name: string, email: string, password: string) => {  
