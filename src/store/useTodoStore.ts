@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { fetchUserTask, addTask, deleteTask } from "../apiCalls";
+import { fetchUserTask, addTask, deleteTask, changeCompletedStatus } from "../apiCalls";
 interface TaskType {
     id: number,
     title: string,
@@ -34,6 +34,14 @@ export const useTodoStore = create<TodoStoreType>((set, get) => ({
         set({ tasks: filteredTasks });
     },
     setCompleted: async ( taskID: number ) => {
-        set(state => ({ tasks: state.tasks.map(task => task.id === taskID ? { ...task, completed: !task.completed } : task) }))        
+        const task = get().tasks.find(task => task.id === taskID);
+        if(!task) return;
+
+        const newStatus = !task.completed;
+        try {
+            await changeCompletedStatus(taskID, newStatus);
+        } catch (error) {
+            console.error(error);
+        }
     }
 }))
