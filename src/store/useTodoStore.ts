@@ -1,21 +1,7 @@
+import { type TodoStoreType } from '../types'
 import { create } from "zustand";
 import { fetchUserTask, addTask, deleteTask, changeCompletedStatus } from "../apiCalls";
-interface TaskType {
-    id: number,
-    title: string,
-    description: string,
-    completed: boolean,
-    user_id: number,
-    created_at: string,
-    updated_at: string
-}
-interface TodoStoreType {
-    tasks: TaskType[] | [];
-    getUserTasks: () => void;
-    addTask: ( title: string, description: string ) => void;
-    deleteTask: ( taskID : number ) => void;
-    setCompleted: ( taskID: number) => void;
-}
+
 export const useTodoStore = create<TodoStoreType>((set, get) => ({
     tasks: [],
     getUserTasks: async () => {

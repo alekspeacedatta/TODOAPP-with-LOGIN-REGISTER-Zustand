@@ -1,15 +1,6 @@
 import { create } from "zustand";
+import { type RegisterType } from "../types";
 
-interface UserType {
-    email: string,
-    password: string,
-    name: string
-}
-interface RegisterType {
-    user: UserType | null,
-    register: (name: string, email: string, password: string) => void;
-    login: ( email : string, password : string ) => void;
-}
 export const useAuthenticationStore = create<RegisterType>( () => ({
     user: null,
 
