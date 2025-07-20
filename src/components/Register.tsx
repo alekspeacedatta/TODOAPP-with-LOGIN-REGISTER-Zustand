@@ -7,21 +7,29 @@ const Register = () => {
     const [ password, setPassword ] = useState('')
 
     const register = useAuthenticationStore(state => state.register);
+
+    const handleSubmit = async ( e : any ) => {
+        e.preventDefault();
+        await register(name, email, password);
+        setName('');
+        setEmail('');
+        setPassword('');
+    }
     return (
         <>
-            <form onSubmit={(e) => { e.preventDefault(), register(name, email, password) }}>
+            <form onSubmit={handleSubmit}>
                 <h2>Register: </h2>
                 <section>
                     <label htmlFor="">Name: </label>
-                    <input type="text" placeholder="enter your name" onChange={e => { setName(e.target.value) }} />
+                    <input value={name} type="text" placeholder="enter your name" onChange={e => { setName(e.target.value) }} />
                 </section>
                 <section>
                     <label htmlFor="">Email: </label>
-                    <input type="text" placeholder="enter your email" onChange={e => { setEmail(e.target.value) }} />
+                    <input value={email} type="text" placeholder="enter your email" onChange={e => { setEmail(e.target.value) }} />
                 </section>
                 <section>
                     <label htmlFor="">Password:</label>
-                    <input type="text" placeholder="enter your password" onChange={e => { setPassword(e.target.value) }} />
+                    <input value={password} type="text" placeholder="enter your password" onChange={e => { setPassword(e.target.value) }} />
                 </section>
                 <button type="submit">Submit</button>
             </form>        

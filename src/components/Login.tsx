@@ -6,17 +6,23 @@ const Login = () => {
     const [ password, setPassword ] = useState('')
     
     const login = useAuthenticationStore(state => state.login);
+    const handleLogin = async ( e : any ) => {
+        e.preventDefault();
+        await login(email, password);
+        setEmail('');
+        setPassword('');
+    }
     return (
         <>
-            <form onSubmit={(e) => { e.preventDefault(), login( email, password) }}>
+            <form onSubmit={handleLogin}>
                 <h2>Login: </h2>
                 <section>
                     <label htmlFor="">Email: </label>
-                    <input type="text" placeholder="enter your email" onChange={e => { setEmail(e.target.value) }} />
+                    <input value={email} type="text" placeholder="enter your email" onChange={e => { setEmail(e.target.value) }} />
                 </section>
                 <section>
                     <label htmlFor="">Password:</label>
-                    <input type="text" placeholder="enter your password" onChange={e => { setPassword(e.target.value) }} />
+                    <input value={password} type="text" placeholder="enter your password" onChange={e => { setPassword(e.target.value) }} />
                 </section>
                 <button type="submit">Submit</button>
             </form>        
