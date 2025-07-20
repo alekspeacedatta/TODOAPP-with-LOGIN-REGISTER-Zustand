@@ -6,9 +6,9 @@ const Login = () => {
     const [ password, setPassword ] = useState('')
     
     const login = useAuthenticationStore(state => state.login);
-    const handleLogin = async ( e : any ) => {
+    const handleLogin =  ( e : any ) => {
         e.preventDefault();
-        await login(email, password);
+        login(email, password);
         setEmail('');
         setPassword('');
     }

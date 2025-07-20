@@ -8,9 +8,9 @@ const Register = () => {
 
     const register = useAuthenticationStore(state => state.register);
 
-    const handleRegister = async ( e : any ) => {
+    const handleRegister = ( e : any ) => {
         e.preventDefault();
-        await register(name, email, password);
+        register(name, email, password);
         setName('');
         setEmail('');
         setPassword('');
