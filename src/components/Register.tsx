@@ -8,7 +8,7 @@ const Register = () => {
 
     const register = useAuthenticationStore(state => state.register);
 
-    const handleSubmit = async ( e : any ) => {
+    const handleRegister = async ( e : any ) => {
         e.preventDefault();
         await register(name, email, password);
         setName('');
@@ -17,7 +17,7 @@ const Register = () => {
     }
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleRegister}>
                 <h2>Register: </h2>
                 <section>
                     <label htmlFor="">Name: </label>
