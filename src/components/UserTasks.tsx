@@ -13,7 +13,7 @@ const UserTasks = () => {
     return (
         <div className="user-tasks-container">
             <h2>user Tasks: </h2>
-            {tasks.map(task => (
+            {/* {tasks.map(task => (
                 <div className="task" key={task.id}>
                     <section>
                             <h2>{task.title}</h2>
@@ -22,7 +22,7 @@ const UserTasks = () => {
                     </section>
                     <button onClick={() => { deleteTask(task.id) }}>delete Task</button> 
                 </div>
-            ))}
+            ))} */}
         </div>
     )
 }

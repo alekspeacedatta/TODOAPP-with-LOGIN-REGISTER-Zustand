@@ -19,7 +19,7 @@ export interface UserType {
     password: string,
     name: string
 }
-export interface RegisterType {
+export interface AuthenticationType {
     user: UserType | null,
     register: (name: string, email: string, password: string) => void;
     login: ( email : string, password : string ) => void;

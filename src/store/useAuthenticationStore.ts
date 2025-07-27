@@ -1,7 +1,7 @@
 import { create } from "zustand";
-import { type RegisterType } from "../types";
+import { type AuthenticationType } from "../types";
 
-export const useAuthenticationStore = create<RegisterType>( () => ({
+export const useAuthenticationStore = create<AuthenticationType>( () => ({
     user: null,
 
     register: async (name: string, email: string, password: string) => {  
